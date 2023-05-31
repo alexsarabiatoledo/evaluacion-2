@@ -15,16 +15,21 @@ const axiosInstance = axios.create({
 });
 
 /**
- * TODO: Send request to the real endpoint
- * Missing endpoint information (contract, documentation, etc) so:
- * Only returns false when the RUT is 55.555.555-5 (any format)
- * PLEASE CHANGE THIS FOR THE CORRECT IMPLEMENTATION OF THE API BEFORE MERGING INTO MASTER
  * @param {string} rut - User RUT
  */
 async function getCriminalRecords(rut) {
-	//return axiosInstance.get("????").then((response) => true);
-	const fakeResponse = rut !== "555555555";
-	return Promise.resolve(fakeResponse);
+	const url = `${BASE_URL}${ENDPOINTS.getPeople(rut)}`;
+	return axios
+		.get(url)
+		.then(() => {
+			return true;
+		})
+		.catch((error) => {
+			if (error.response.status === 404) {
+				return false;
+			}
+			throw error;
+		});
 }
 
 export { getCriminalRecords };
