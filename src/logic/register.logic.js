@@ -86,7 +86,6 @@ async function checkIfRUTisAllowed(rut) {
 	const response = await getCriminalRecords(rut);
 	if (!response) {
 		const { userNotAllowed } = registerMessages;
-
 		throw new HTTPError({
 			name: userNotAllowed.name,
 			msg: userNotAllowed.message,

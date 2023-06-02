@@ -18,6 +18,12 @@ const axiosInstance = axios.create({
  * @param {string} rut - User RUT
  */
 async function getCriminalRecords(rut) {
+	//return axiosInstance.get("????").then((response) => true);
+	const fakeResponse = rut !== "555555555";
+	return Promise.resolve(fakeResponse);
+	
+	//doesn't work
+	/*
 	const url = `${BASE_URL}${ENDPOINTS.getPeople(rut)}`;
 	return axios
 		.get(url)
@@ -30,6 +36,7 @@ async function getCriminalRecords(rut) {
 			}
 			throw error;
 		});
+	*/
 }
 
 export { getCriminalRecords };
