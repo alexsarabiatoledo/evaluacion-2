@@ -14,8 +14,9 @@ _Need a mongo database connection_
 ```
 Set the environment variables in env/.local.env file:
 - HOST: HOST for swagger client
-- PORT: running port number and for swagger client
+- PORT: running port number: `4001` and for swagger client
 - MONGO_URI: Mongo URI full format `mongodb://user:pass@host:port/databaseName`
+- Open port 4001 in mongodb
 ```
 
 ## Run locally
